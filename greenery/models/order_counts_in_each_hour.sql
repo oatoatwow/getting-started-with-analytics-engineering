@@ -3,7 +3,7 @@ order_counts_in_each_hour as (
   select 
   date_trunc('hour', created_at) as hours
   ,count(distinct order_id) as order_count
-  from public.orders
+  from {{source('greenery','orders')}}
   group by 1
 )
 

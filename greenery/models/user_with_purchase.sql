@@ -6,7 +6,7 @@ select
   when count(order_id) = 2 then 'tow_purchase'
   when count(order_id) >= 3 then 'three_plus_purchase'
   end as puchase
-from public.orders
+from {{source('greenery','orders')}}
 group by 1
 )
 
